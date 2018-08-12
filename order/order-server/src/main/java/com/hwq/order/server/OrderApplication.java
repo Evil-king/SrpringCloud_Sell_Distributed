@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableFeignClients(basePackages = "com.hwq.product.client")
 @SpringBootApplication
 @EnableDiscoveryClient
-@ComponentScan(basePackages = "com.hwq")
+//@ComponentScan(basePackages = "com.hwq")
 public class OrderApplication {
 
 	public static void main(String[] args) {
