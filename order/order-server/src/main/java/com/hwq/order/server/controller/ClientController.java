@@ -23,22 +23,22 @@ public class ClientController {
     private ProductClient productClient;
 
     @GetMapping("/getProdunt")
-    public String getProduntMsg(){
+    public String getProduntMsg() {
         String result = productClient.productMsg();
-        log.info("result={}",result);
-        return  result;
+        log.info("result={}", result);
+        return result;
     }
 
     @GetMapping("/getProduntList")
-    public String getProduntList(){
+    public String getProduntList() {
         List<ProductInfoOutput> productInfoList = productClient.listForOrder(Arrays.asList("164103465734242707"));
         log.info("productInfoList={}", productInfoList);
-        return  "Ok";
+        return "Ok";
     }
 
     @GetMapping("/productDecreaseStock")
-    public String productDeceaseStock(){
-        productClient.decreaseStock(Arrays.asList(new DecreaseStockInput("164103465734242707",3)));
-        return  "Ok";
+    public String productDeceaseStock() {
+        productClient.decreaseStock(Arrays.asList(new DecreaseStockInput("164103465734242707", 3)));
+        return "Ok";
     }
 }

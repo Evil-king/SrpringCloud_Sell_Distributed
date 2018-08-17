@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ServerController {
 
     @GetMapping("/msg")
-    public String getMsg(){
+    public String getMsg() {
         return "this is product' msg";
     }
 }

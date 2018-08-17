@@ -37,26 +37,26 @@ public class ProductController {
      * 4. 构造数据
      */
     @GetMapping("/list")
-    public ResultVO list(){
+    public ResultVO list() {
         //1. 查询所有在架的商品
-        List<ProductInfo> productInfoList =  productServer.findUp();
+        List<ProductInfo> productInfoList = productServer.findUp();
         //2. 获取类目type列表
-        List<Integer> categoryList =  productInfoList.stream().map(ProductInfo::getCategoryType).collect(Collectors.toList());
+        List<Integer> categoryList = productInfoList.stream().map(ProductInfo::getCategoryType).collect(Collectors.toList());
         //3. 查询类目
         List<ProductCategory> productCategoryList = productCategoryServer.findByCategoryTypeIn(categoryList);
         //4. 构造数据
         List<ProductVO> productVOList = new ArrayList<>();
-        for(ProductCategory productCategory : productCategoryList){
+        for (ProductCategory productCategory : productCategoryList) {
             ProductVO productVO = new ProductVO();
             productVO.setCategoryName(productCategory.getCategoryName());
             productVO.setCategoryType(productCategory.getCategoryType());
 
             List<ProductInfoVO> productInfoVOList = new ArrayList<>();
-                for(ProductInfo productInfo : productInfoList){
-                    if(productCategory.getCategoryType().equals(productInfo.getCategoryType())){
+            for (ProductInfo productInfo : productInfoList) {
+                if (productCategory.getCategoryType().equals(productInfo.getCategoryType())) {
                     ProductInfoVO productInfoVO = new ProductInfoVO();
                     //把productInfo里面的属性copy到productInfoVO中
-                    BeanUtils.copyProperties(productInfo,productInfoVO);
+                    BeanUtils.copyProperties(productInfo, productInfoVO);
                     productInfoVOList.add(productInfoVO);
                 }
                 productVO.setProductInfoVOList(productInfoVOList);
@@ -72,21 +72,23 @@ public class ProductController {
 
     /**
      * 获取商品列表(给订单服务用的)
+     *
      * @param productList
      * @return
      */
     @PostMapping("/listForOrder")
-    public List<ProductInfo> listForOrder(@RequestBody List<String> productList){
+    public List<ProductInfo> listForOrder(@RequestBody List<String> productList) {
 
         return productServer.findByProductIdIn(productList);
     }
 
     /**
      * 扣减库存
+     *
      * @param carDTOList
      */
     @PostMapping("/decreaseStock")
-    public void decreaseStock(@RequestBody List<CarDTO> carDTOList){
+    public void decreaseStock(@RequestBody List<CarDTO> carDTOList) {
         productServer.decreaseStock(carDTOList);
     }
 }

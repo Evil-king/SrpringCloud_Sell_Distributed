@@ -37,18 +37,18 @@ public class ProductServerImpl implements ProductServer {
     @Override
     @Transactional
     public void decreaseStock(List<CarDTO> carDTOList) {
-        for(CarDTO carDTO : carDTOList){
+        for (CarDTO carDTO : carDTOList) {
             Optional<ProductInfo> productInfoOptional = productInfoRepository.findById(carDTO.getProductId());
             //判断商品是否存在
-            if(!productInfoOptional.isPresent()){
-                throw  new ProductException(ResultEnum.PRODUCT_BIT_EXIT);
+            if (!productInfoOptional.isPresent()) {
+                throw new ProductException(ResultEnum.PRODUCT_BIT_EXIT);
             }
 
             ProductInfo productInfo = productInfoOptional.get();
             //库存是否足够
             Integer result = productInfo.getProductStock() - carDTO.getProductQuantity();
-            if(result < 0){
-                throw  new ProductException(ResultEnum.PRODUCT_STOCK_ERROP);
+            if (result < 0) {
+                throw new ProductException(ResultEnum.PRODUCT_STOCK_ERROP);
             }
 
             productInfo.setProductStock(result);

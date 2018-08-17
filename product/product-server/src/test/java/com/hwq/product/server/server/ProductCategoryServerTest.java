@@ -24,7 +24,7 @@ public class ProductCategoryServerTest extends ProductCategoryRepositoryTest {
 
     @Test
     public void findByCategoryTypeIn() throws Exception {
-        List<ProductCategory> list =  productCategoryRepository.findByCategoryTypeIn(Arrays.asList(1,22));
+        List<ProductCategory> list = productCategoryRepository.findByCategoryTypeIn(Arrays.asList(1, 22));
         Assert.assertTrue(list.size() > 0);
     }
 

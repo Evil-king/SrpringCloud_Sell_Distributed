@@ -32,7 +32,7 @@ public class ProductInfoRepositoryTest {
 
     @Test
     public void findByProductIdIn() throws Exception {
-        List<ProductInfo> list = productInfoRepository.findByProductIdIn(Arrays.asList("157875196366160022","157875227953464068"));
+        List<ProductInfo> list = productInfoRepository.findByProductIdIn(Arrays.asList("157875196366160022", "157875227953464068"));
         Assert.assertTrue(list.size() > 0);
     }
 

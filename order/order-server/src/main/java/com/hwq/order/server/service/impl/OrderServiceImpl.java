@@ -47,16 +47,16 @@ public class OrderServiceImpl implements OrderService {
     public OrderDTO create(OrderDTO orderDTO) {
         String orderId = KeyUtil.genUniqueKey();
 
-       //查询商品信息(调用商品服务)
+        //查询商品信息(调用商品服务)
         List<String> productIdList = orderDTO.getOrderDetailList().stream()
                 .map(OrderDetail::getProductId)
                 .collect(Collectors.toList());
         List<ProductInfoOutput> productInfoList = productClient.listForOrder(productIdList);
 
-       //计算总价
+        //计算总价
         BigDecimal orderAmout = new BigDecimal(BigInteger.ZERO);
-        for (OrderDetail orderDetail: orderDTO.getOrderDetailList()) {
-            for (ProductInfoOutput productInfoOutput: productInfoList) {
+        for (OrderDetail orderDetail : orderDTO.getOrderDetailList()) {
+            for (ProductInfoOutput productInfoOutput : productInfoList) {
                 if (productInfoOutput.getProductId().equals(orderDetail.getProductId())) {
                     //单价*数量
                     orderAmout = productInfoOutput.getProductPrice()
@@ -70,7 +70,7 @@ public class OrderServiceImpl implements OrderService {
                 }
             }
         }
-       //扣库存(调用商品服务)
+        //扣库存(调用商品服务)
         List<DecreaseStockInput> decreaseStockInputList = orderDTO.getOrderDetailList().stream()
                 .map(e -> new DecreaseStockInput(e.getProductId(), e.getProductQuantity()))
                 .collect(Collectors.toList());

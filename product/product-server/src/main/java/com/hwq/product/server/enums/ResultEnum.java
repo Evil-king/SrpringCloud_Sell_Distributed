@@ -9,9 +9,8 @@ import lombok.Getter;
 @Getter
 public enum ResultEnum {
 
-    PRODUCT_BIT_EXIT(1,"商品不存在"),
-    PRODUCT_STOCK_ERROP(2,"库存有误"),
-    ;
+    PRODUCT_BIT_EXIT(1, "商品不存在"),
+    PRODUCT_STOCK_ERROP(2, "库存有误"),;
 
     private Integer code;
 

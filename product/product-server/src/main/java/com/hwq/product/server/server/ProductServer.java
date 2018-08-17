@@ -19,6 +19,7 @@ public interface ProductServer {
 
     /**
      * 查询商品列表
+     *
      * @param productIdList
      * @return
      */
@@ -26,6 +27,7 @@ public interface ProductServer {
 
     /**
      * 扣库存
+     *
      * @param carDTOList
      */
     void decreaseStock(List<CarDTO> carDTOList);

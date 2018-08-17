@@ -4,6 +4,7 @@ import lombok.Data;
 
 /**
  * 减库存入参
+ *
  * @author hwq
  * @date 2018/08/02
  */
