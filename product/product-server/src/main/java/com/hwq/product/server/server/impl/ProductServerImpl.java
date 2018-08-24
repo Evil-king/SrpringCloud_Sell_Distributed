@@ -7,6 +7,9 @@ import com.hwq.product.server.enums.ResultEnum;
 import com.hwq.product.server.exception.ProductException;
 import com.hwq.product.server.repository.ProductInfoRepository;
 import com.hwq.product.server.server.ProductServer;
+import com.hwq.product.server.utils.JsonUtil;
+import com.rabbitmq.tools.json.JSONUtil;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +26,9 @@ public class ProductServerImpl implements ProductServer {
 
     @Autowired
     private ProductInfoRepository productInfoRepository;
+
+    @Autowired
+    private AmqpTemplate amqpTemplate;
 
     @Override
     public List<ProductInfo> findUp() {
@@ -53,6 +59,9 @@ public class ProductServerImpl implements ProductServer {
 
             productInfo.setProductStock(result);
             productInfoRepository.save(productInfo);
+
+            //发送队列消息
+            amqpTemplate.convertAndSend("productInfo",JsonUtil.toJson(productInfo));
         }
     }
 }
