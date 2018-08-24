@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-         uri: https://github.com/Evil-king/config-repo.git
+         uri: https://gitee.com/fox_hu/config-repo.git
          username: hwq8910@163.com
          password: fox6228676
          basedir: E:\project\SrpringCloud_Sell_Distributed\config\basedir
@@ -13,8 +13,13 @@ eureka:
   client:
     service-url:
      defaultZone: http://localhost:8761/eureka/
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: bus-refresh
