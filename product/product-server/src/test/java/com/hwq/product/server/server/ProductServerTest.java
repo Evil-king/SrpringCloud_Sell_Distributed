@@ -21,22 +21,22 @@ public class ProductServerTest extends ProductServerApplicationTests {
     @Autowired
     private ProductServer productServer;
 
-    @Test
-    public void findUp() throws Exception {
-        List<ProductInfo> list = productServer.findUp();
-        Assert.assertTrue(list.size() > 0);
-    }
-
-    @Test
-    public void findByProductIdIn() throws Exception {
-        List<ProductInfo> list = productServer.findByProductIdIn(Arrays.asList("157875196366160022", "157875227953464068"));
-        Assert.assertTrue(list.size() > 0);
-    }
-
-    @Test
-    public void decreaseStock() throws Exception {
-        CarDTO carDTO = new CarDTO("157875196366160022", 2);
-        productServer.decreaseStock(Arrays.asList(carDTO));
-    }
+//    @Test
+//    public void findUp() throws Exception {
+//        List<ProductInfo> list = productServer.findUp();
+//        Assert.assertTrue(list.size() > 0);
+//    }
+//
+//    @Test
+//    public void findByProductIdIn() throws Exception {
+//        List<ProductInfo> list = productServer.findByProductIdIn(Arrays.asList("157875196366160022", "157875227953464068"));
+//        Assert.assertTrue(list.size() > 0);
+//    }
+//
+//    @Test
+//    public void decreaseStock() throws Exception {
+//        CarDTO carDTO = new CarDTO("157875196366160022", 2);
+//        productServer.decreaseStock(Arrays.asList(carDTO));
+//    }
 
 }
