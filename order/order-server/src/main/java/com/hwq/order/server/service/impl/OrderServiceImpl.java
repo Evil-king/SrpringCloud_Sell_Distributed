@@ -3,8 +3,6 @@ package com.hwq.order.server.service.impl;
 
 import com.hwq.order.server.dataobject.OrderDetail;
 import com.hwq.order.server.dataobject.OrderMaster;
-import com.hwq.order.server.dataobject.ProductInfo;
-import com.hwq.order.server.dto.CarDTO;
 import com.hwq.order.server.dto.OrderDTO;
 import com.hwq.order.server.enums.OrderStatusEnum;
 import com.hwq.order.server.enums.PayStatusEnum;

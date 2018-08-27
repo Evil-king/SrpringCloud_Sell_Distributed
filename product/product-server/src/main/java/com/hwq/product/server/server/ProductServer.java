@@ -1,7 +1,7 @@
 package com.hwq.product.server.server;
 
+import com.hwq.product.common.DecreaseStockInput;
 import com.hwq.product.server.dataobject.ProductInfo;
-import com.hwq.product.server.dto.CarDTO;
 
 import java.util.List;
 
@@ -28,8 +28,8 @@ public interface ProductServer {
     /**
      * 扣库存
      *
-     * @param carDTOList
+     * @param decreaseStockInputs
      */
-    void decreaseStock(List<CarDTO> carDTOList);
+    void decreaseStock(List<DecreaseStockInput> decreaseStockInputs);
 
 }

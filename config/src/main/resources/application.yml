@@ -8,8 +8,8 @@ spring:
          uri: https://gitee.com/fox_hu/config-repo.git
          username: hwq8910@163.com
          password: fox6228676
-#         basedir: E:\project\SrpringCloud_Sell_Distributed\config\basedir
-         basedir: /Users/Macx/MyDocuments/SrpringCloud_Sell_Distributed/config/basedir
+         basedir: E:\project\SrpringCloud_Sell_Distributed\config\basedir
+#         basedir: /Users/Macx/MyDocuments/SrpringCloud_Sell_Distributed/config/basedir
 eureka:
   client:
     service-url:
@@ -19,8 +19,3 @@ eureka:
 #    web:
 #      exposure:
 #        include: "*"
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: bus-refresh

@@ -1,11 +1,11 @@
 package com.hwq.product.server.controller;
 
+import com.hwq.product.common.DecreaseStockInput;
 import com.hwq.product.server.VO.ProductInfoVO;
 import com.hwq.product.server.VO.ProductVO;
 import com.hwq.product.server.VO.ResultVO;
 import com.hwq.product.server.dataobject.ProductCategory;
 import com.hwq.product.server.dataobject.ProductInfo;
-import com.hwq.product.server.dto.CarDTO;
 import com.hwq.product.server.server.ProductCategoryServer;
 import com.hwq.product.server.server.ProductServer;
 import org.springframework.beans.BeanUtils;
@@ -85,10 +85,10 @@ public class ProductController {
     /**
      * 扣减库存
      *
-     * @param carDTOList
+     * @param decreaseStockInputs
      */
     @PostMapping("/decreaseStock")
-    public void decreaseStock(@RequestBody List<CarDTO> carDTOList) {
-        productServer.decreaseStock(carDTOList);
+    public void decreaseStock(@RequestBody List<DecreaseStockInput> decreaseStockInputs) {
+        productServer.decreaseStock(decreaseStockInputs);
     }
 }

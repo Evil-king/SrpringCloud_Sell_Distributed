@@ -2,19 +2,15 @@ package com.hwq.order.server.dataobject;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.math.BigDecimal;
-import java.util.Date;
 
 /**
  * @author hwq
  * @date 2018/08/02
  */
 @Data
-@Entity
-public class ProductInfo {
-    @Id
+public class ProductInfoOutput {
+
     private String productId;
 
     /**
@@ -51,8 +47,4 @@ public class ProductInfo {
      * 类目编号.
      */
     private Integer categoryType;
-
-    private Date createTime;
-
-    private Date updateTime;
 }

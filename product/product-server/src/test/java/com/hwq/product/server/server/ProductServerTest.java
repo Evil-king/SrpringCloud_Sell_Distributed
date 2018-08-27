@@ -1,15 +1,9 @@
 package com.hwq.product.server.server;
 
 import com.hwq.product.server.ProductServerApplicationTests;
-import com.hwq.product.server.dataobject.ProductInfo;
-import com.hwq.product.server.dto.CarDTO;
-import org.junit.Assert;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author hwq
