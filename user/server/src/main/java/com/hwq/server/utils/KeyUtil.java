@@ -1,6 +1,7 @@
 package com.hwq.server.utils;
 
 import java.util.Random;
+
 public class KeyUtil {
 
     /**
