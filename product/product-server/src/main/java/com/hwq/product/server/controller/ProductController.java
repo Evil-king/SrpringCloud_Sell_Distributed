@@ -60,8 +60,8 @@ public class ProductController {
                     productInfoVOList.add(productInfoVO);
                 }
                 productVO.setProductInfoVOList(productInfoVOList);
-                productVOList.add(productVO);
             }
+            productVOList.add(productVO);
         }
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(0);
