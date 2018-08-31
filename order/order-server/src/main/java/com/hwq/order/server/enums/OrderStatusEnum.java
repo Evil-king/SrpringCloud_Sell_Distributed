@@ -2,10 +2,6 @@ package com.hwq.order.server.enums;
 
 import lombok.Getter;
 
-/**
- * Created by 廖师兄
- * 2017-12-10 16:18
- */
 @Getter
 public enum OrderStatusEnum {
     NEW(0, "新订单"),
