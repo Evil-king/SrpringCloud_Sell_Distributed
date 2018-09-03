@@ -26,7 +26,7 @@ public interface ProductClient {
      static class ProductClientFallBack implements ProductClient{
         @Override
         public String productMsg() {
-            return null;
+            return "";
         }
 
         @Override
