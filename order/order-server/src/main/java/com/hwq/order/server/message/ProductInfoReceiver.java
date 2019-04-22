@@ -1,8 +1,8 @@
 package com.hwq.order.server.message;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.hwq.order.server.dataobject.ProductInfoOutput;
 import com.hwq.order.server.utils.JsonUtil;
+import com.hwq.product.common.ProductInfoOutput;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.Queue;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

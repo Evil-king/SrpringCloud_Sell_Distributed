@@ -9,12 +9,12 @@ public interface StreamClient {
 
     String INPUT = "myMessage";
 
-    @Input(StreamClient.INPUT)
-    default SubscribableChannel input() {
-        return null;
-    }
+    String INPUT2 = "myMessage2";
 
-    @Output(StreamClient.INPUT)
+    @Input(StreamClient.INPUT)
+    SubscribableChannel input();
+
+    @Output(StreamClient.INPUT2)
     MessageChannel output();
 
 
