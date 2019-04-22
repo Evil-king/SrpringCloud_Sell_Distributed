@@ -1,6 +1,7 @@
 package com.hwq.product.server.controller;
 
 import com.hwq.product.common.DecreaseStockInput;
+import com.hwq.product.common.ProductInfoOutput;
 import com.hwq.product.server.VO.ProductInfoVO;
 import com.hwq.product.server.VO.ProductVO;
 import com.hwq.product.server.VO.ResultVO;
@@ -77,12 +78,7 @@ public class ProductController {
      * @return
      */
     @PostMapping("/listForOrder")
-    public List<ProductInfo> listForOrder(@RequestBody List<String> productList) {
-//        try {
-//            Thread.sleep(2*1000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+    public List<ProductInfoOutput> listForOrder(@RequestBody List<String> productList) {
         return productServer.findByProductIdIn(productList);
     }
 

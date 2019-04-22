@@ -39,12 +39,16 @@ public class ProductServerImpl implements ProductServer {
     }
 
     @Override
-    public List<ProductInfo> findByProductIdIn(List<String> productIdList) {
-        return productInfoRepository.findByProductIdIn(productIdList);
+    public List<ProductInfoOutput> findByProductIdIn(List<String> productIdList) {
+        return productInfoRepository.findByProductIdIn(productIdList).stream().map(
+                e -> {
+                    ProductInfoOutput productInfoOutput = new ProductInfoOutput();
+                    BeanUtils.copyProperties(e,productInfoOutput);
+                    return productInfoOutput;
+                }).collect(Collectors.toList());
     }
 
     @Override
-
     public void decreaseStock(List<DecreaseStockInput> decreaseStockInputs) {
         List<ProductInfo> productInfoList = decreaseStockProcess(decreaseStockInputs);
        List<ProductInfoOutput> productInfoOutputs =  productInfoList.stream().map(e -> {

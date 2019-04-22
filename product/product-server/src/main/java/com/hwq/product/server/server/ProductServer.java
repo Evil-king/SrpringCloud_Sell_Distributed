@@ -1,6 +1,7 @@
 package com.hwq.product.server.server;
 
 import com.hwq.product.common.DecreaseStockInput;
+import com.hwq.product.common.ProductInfoOutput;
 import com.hwq.product.server.dataobject.ProductInfo;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public interface ProductServer {
      * @param productIdList
      * @return
      */
-    List<ProductInfo> findByProductIdIn(List<String> productIdList);
+    List<ProductInfoOutput> findByProductIdIn(List<String> productIdList);
 
     /**
      * 扣库存
