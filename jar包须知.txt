@@ -1,2 +1,3 @@
 因为是服务之间的相互依赖 除了eureka之外的其他服务都需要在本地利用maven
 先执行clean->compile(编译)->package(打包)->install(安装jar包到本地仓库，这一步一定要不然其他服务拿不到jar包)
+rabbitmq和redis都是通过docker启动的
